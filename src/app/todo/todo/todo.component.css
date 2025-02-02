@@ -1,0 +1,14 @@
+.completedButton{
+    color: #ff69b4;
+    border-radius: 4px;
+}
+
+.rightAlignX{
+    position: absolute;
+    right: 0px;
+}
+
+.completedTaskStrikeThrough{
+    text-decoration: line-through;
+   
+}

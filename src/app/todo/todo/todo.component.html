@@ -1,0 +1,40 @@
+<h1>To-Do List</h1>
+<p>A place to store your todos</p>
+
+@for (todo of allToDos; track $index; let ind = $index) {
+    <p>
+        @if (todo.completed) {
+            <span *ngIf="!todo.isRemoved" class="completedTaskStrikeThrough">{{ind + 1}}.{{todo.task}} ({{todo.duration}})</span>
+        }
+        @else {
+            <span *ngIf="!todo.isRemoved">
+            {{ind + 1}}
+            <button (click)="completeTask(todo)" class="completedButton">Completed</button>
+            {{todo.task}} ({{todo.duration}})
+        </span>
+            
+        }
+        <span class="rightAlignX">
+            <button (click)="removeItem(todo)">{{displayX()}}</button>
+        </span>
+        
+    </p>
+}
+
+<form (ngSubmit)="addTask()">
+    <div>
+        <label for="newTask">Enter a new Task:</label>
+        <input type="text" name="newTask" id="newTask" [(ngModel)]="addToDo.task" required>
+    </div>
+
+    <div>
+        <label for="newTaskDuration">How many hours tdo you estimate:</label>
+        <input type="text" name="newTaskDuration" id="newTaskDuration" [(ngModel)]="addToDo.duration" required>
+    </div>
+
+    <button type="submit">Add</button>
+</form>
+
+
+
+    
